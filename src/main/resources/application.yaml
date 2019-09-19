@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  activiti:
+    database-schema-update: true
+    check-process-definitions: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/workflow?characterEncoding=utf8&useSSL=false
+    username: root
+    password:
+#    云服务器没有MySQL数据库中的user表
+#    url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false
+#    username: snn
+#    password: (23@snn.com)
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.snn.workflowdemo.entity
+  mapperLocations: classpath:mappers/*Mapper.xml
