@@ -1,21 +1,30 @@
 server:
   port: 8080
+
 spring:
   main:
     allow-bean-definition-overriding: true
   activiti:
-    database-schema-update: true
+    database-schema-update: false
     check-process-definitions: false
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/workflow?characterEncoding=utf8&useSSL=false
-    username: root
-    password:
-#    云服务器没有MySQL数据库中的user表
-#    url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false
-#    username: snn
-#    password: (23@snn.com)
+#    url: jdbc:mysql://172.17.130.182:3306/workflow?characterEncoding=utf8&useSSL=false
+#    username: root
+#    password:
+    url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false
+    username: workflow
+    password: 123
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+
 mybatis:
-  type-aliases-package: com.snn.workflowdemo.entity
+  type-aliases-package: com.snn.workflow.entity
   mapperLocations: classpath:mappers/*Mapper.xml
+
+
+logging:
+  path: C:\Users\SNN\SNN\Desktop\All activiti\workflow\logs
