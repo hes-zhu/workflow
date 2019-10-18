@@ -7,6 +7,12 @@ import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.history.HistoricTaskInstance;
+import org.activiti.engine.impl.RepositoryServiceImpl;
+import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
+import org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity;
+import org.activiti.engine.impl.pvm.PvmActivity;
+import org.activiti.engine.impl.pvm.PvmTransition;
+import org.activiti.engine.impl.pvm.process.ActivityImpl;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Task;
 import org.apache.commons.lang3.StringUtils;
@@ -98,8 +104,7 @@ public class TaskServiceImpl implements ITaskService {
                 return ServiceResponse.createBySuccess("查询成功", taskList);
             }
         }
-         return ServiceResponse.createByErrorMessage("查询成功，无待办任务");
-//        return ServiceResponse.createBySuccessMessage("查询成功，无待办任务");
+         return ServiceResponse.createBySuccessMessage("查询成功，无待办任务");
     }
 
     @Override
@@ -113,19 +118,24 @@ public class TaskServiceImpl implements ITaskService {
             }
         }
         Map<String, Object> varables = new HashMap<>();
-        if (map.get("money") != null) {
-            Double money = (Double) map.get("money");
-            varables.put("money", money);
+        if (map.get("budget") != null) {
+            Double money = (Double) map.get("budget");
+            varables.put("budget", money);
         }
-        if (map.get("tender") != null) {
-            Boolean tender = (Boolean) map.get("tender");
-            varables.put("tender", tender);
+        if (map.get("type") != null) {
+            Boolean type = (Boolean) map.get("type");
+            varables.put("type", type);
+        }
+        if (map.get("agree") != null) {
+            Boolean agree = (Boolean) map.get("agree");
+            varables.put("agree", agree);
         }
         if (map.get("result") != null) {
             String result = (String) map.get("result");
             varables.put("result", result);
         }
 
+        System.out.println(varables);
         taskService.complete(taskId, varables);
 
         return ServiceResponse.createBySuccess();
@@ -160,4 +170,64 @@ public class TaskServiceImpl implements ITaskService {
         }
         return ServiceResponse.createByError();
     }
+
+    public ServiceResponse getCurrentNode(String processInstanceId) {
+        List<Task> tasks = taskService.createTaskQuery().processInstanceId(processInstanceId).list();
+        if (tasks != null && tasks.size() != 0){
+            Map map = new HashMap();
+            List list = new ArrayList();
+            for (Task task : tasks) {
+                ProcessDefinitionEntity def = (ProcessDefinitionEntity) ((RepositoryServiceImpl)repositoryService).getDeployedProcessDefinition(task.getProcessDefinitionId());
+                List<ActivityImpl> activitiList = def.getActivities();
+                String excId = task.getExecutionId();
+                ExecutionEntity execution = (ExecutionEntity) runtimeService.createExecutionQuery().executionId(excId).singleResult();
+                String activitiId = execution.getActivityId();
+                for(ActivityImpl activityImpl : activitiList){
+                    String id = activityImpl.getId();
+                    if(activitiId.equals(id)){
+//                        System.out.println("当前任务："+activityImpl.getProperty("name")); //输出某个节点的某种属性
+                        map.put("currentTask", activityImpl.getProperty("name"));
+                        List<PvmTransition> outTransitions = activityImpl.getOutgoingTransitions();//获取从某个节点出来的所有线路
+                        for(PvmTransition tr:outTransitions){
+                            PvmActivity ac = tr.getDestination(); //获取线路的终点节点
+//                            System.out.println("下一步任务任务："+ac.getProperty("name"));
+                            map.put("nextTask", ac.getProperty("name"));
+                            list.add(map);
+                        }
+                        return ServiceResponse.createBySuccess("获取成功", list);
+                    }
+                }
+            }
+        }
+        return ServiceResponse.createByError();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,10 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -40,7 +37,7 @@ public class UserController {
      * @param: [username, password, session]
      * @date: 2019/6/17 0:46
      **/
-    public ServiceResponse<User> login(@ApiParam("用户名") String username, @ApiParam("密码") String password, HttpSession session) {
+    public ServiceResponse<User> login(@ApiParam("用户名") @RequestParam("username") String username, @ApiParam("密码") @RequestParam("password") String password, HttpSession session) {
         ServiceResponse<User> response = iUserService.login(username, password);
         if(response.isSuccess()) {
             session.setAttribute(Const.CURRENT_USER, response.getData());
@@ -78,7 +75,7 @@ public class UserController {
     }
 
     @ApiOperation("检查用户名/邮箱是否有效")
-    @RequestMapping(value = "check_valid", method = RequestMethod.GET)
+    @RequestMapping(value = "check_valid", method = RequestMethod.POST)
     /**
      * @auther: SNN
      * @Description: 检查用户名是否有效
@@ -87,7 +84,7 @@ public class UserController {
      * @param: [str, type]
      * @date: 2019/6/17 0:46
      **/
-    public ServiceResponse<String> checkValid(@ApiParam("用户名/邮箱") String str, @ApiParam("类型：email/username") String type) {
+    public ServiceResponse<String> checkValid(@ApiParam("用户名/邮箱") @RequestParam("str") String str, @ApiParam("类型：email/username") @RequestParam("type") String type) {
         return iUserService.checkVaild(str, type);
     }
 
@@ -119,7 +116,7 @@ public class UserController {
      * @param: [username]
      * @date: 2019/6/17 0:47
      **/
-    public ServiceResponse<String> forgetGetQuestion(@ApiParam("用户名") String username) {
+    public ServiceResponse<String> forgetGetQuestion(@ApiParam("用户名") @RequestParam("username") String username) {
         return iUserService.selectQuestion(username);
     }
 
@@ -133,7 +130,7 @@ public class UserController {
      * @param: [username, question, answer]
      * @date: 2019/6/17 0:48
      **/
-    public ServiceResponse<String> forgetCheckAnswer(@ApiParam("用户名") String username, @ApiParam("问题") String question, @ApiParam("答案") String answer) {
+    public ServiceResponse<String> forgetCheckAnswer(@ApiParam("用户名") @RequestParam("username") String username, @ApiParam("问题") @RequestParam("question") String question, @ApiParam("答案") @RequestParam("answer") String answer) {
         return iUserService.checkAnswer(username, question, answer);
     }
 
@@ -147,7 +144,7 @@ public class UserController {
      * @param: [username, passwordNew, forgetToken]
      * @date: 2019/6/17 0:48
      **/
-    public ServiceResponse<String> forgetResetPassword(@ApiParam("用户名") String username, @ApiParam("新密码") String passwordNew, @ApiParam("Token令牌") String forgetToken) {
+    public ServiceResponse<String> forgetResetPassword(@ApiParam("用户名") @RequestParam("username") String username, @ApiParam("新密码") @RequestParam("passwordNew") String passwordNew, @ApiParam("Token令牌") @RequestParam("forgetToken") String forgetToken) {
         return iUserService.forgetResetPassword(username, passwordNew, forgetToken);
     }
 
@@ -161,7 +158,7 @@ public class UserController {
      * @param: [session, passwordOld, passwordNew]
      * @date: 2019/6/17 0:49
      **/
-    public ServiceResponse<String> resetPassword(HttpSession session, @ApiParam("旧密码") String passwordOld, @ApiParam("新密码") String passwordNew) {
+    public ServiceResponse<String> resetPassword(HttpSession session, @ApiParam("旧密码") @RequestParam("passwordOld") String passwordOld, @ApiParam("新密码") @RequestParam("passwordNew") String passwordNew) {
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user == null) {
             return ServiceResponse.createByErrorMessage("用户未登录");
@@ -170,16 +167,16 @@ public class UserController {
     }
 
     @ApiOperation("登录状态更新个人信息")
-    @RequestMapping(value = "update_infomation", method = RequestMethod.POST) 
+    @RequestMapping(value = "update_information", method = RequestMethod.POST)
     /**
      * @auther: SNN
      * @Description: 登录状态更新个人信息
-     * @MethodName: update_infomation
+     * @MethodName: update_information
      * @return: com.mmall.common.ServiceResponse<com.snn.workflow.entity.User>
      * @param: [session, user]
      * @date: 2019/6/17 0:49
      **/
-    public ServiceResponse<User> update_infomation(HttpSession session, @ApiParam("用户信息") User user) {
+    public ServiceResponse<User> update_information(HttpSession session, @ApiParam("用户信息") User user) {
         User currentUser = (User)session.getAttribute(Const.CURRENT_USER);
         if(currentUser == null) {
             ServiceResponse.createByErrorMessage("用户未登录");
@@ -193,19 +190,19 @@ public class UserController {
     }
 
     @ApiOperation("获取当前登录用户的详细信息，并强制登录")
-    @RequestMapping(value = "get_infomation", method = RequestMethod.POST) 
+    @RequestMapping(value = "get_information", method = RequestMethod.POST)
     /**
      * @auther: SNN
      * @Description: 获取当前登录用户的详细信息，并强制登录
-     * @MethodName: get_infomation
+     * @MethodName: get_information
      * @return: com.mmall.common.ServiceResponse<com.snn.workflow.entity.User>
      * @param: [session]
      * @date: 2019/6/17 0:50
      **/
-    public ServiceResponse<User> get_infomation(HttpSession session) {
+    public ServiceResponse<User> get_information(HttpSession session) {
         User currentUser = (User)session.getAttribute(Const.CURRENT_USER);
         if(currentUser == null) {
-            return ServiceResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录，需要强制登录");
+            return ServiceResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录，请先登录");
         }
         return iUserService.getInfomation(currentUser.getId());
     }

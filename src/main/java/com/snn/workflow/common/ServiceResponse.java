@@ -81,6 +81,15 @@ public class ServiceResponse<T> implements Serializable {
     public static <T> ServiceResponse<T> createByErrorCodeMessage(int errorCode, String errorMessage) {
         return new ServiceResponse<T>(errorCode, errorMessage);
     }
+
+    @Override
+    public String toString() {
+        return "ServiceResponse{" +
+                "status=" + status +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }
 
 

@@ -105,7 +105,7 @@ public class TaskController {
     }
 
     @ApiOperation("获取流程变量")
-    @GetMapping("getVaribles")
+    @GetMapping("getVariables")
     /**
      * @auther: SNN
      * @Description: 获取流程变量
@@ -114,7 +114,7 @@ public class TaskController {
      * @param: [executionId, variable]
      * @date: 2019/9/30 19:33
      **/
-    public ServiceResponse getVaribles(@ApiParam("执行Id") @RequestParam("executionId") String executionId, @ApiParam("流程变量") @RequestParam("variable")String variable) {
+    public ServiceResponse getVariables(@ApiParam("执行Id") @RequestParam("executionId") String executionId, @ApiParam("流程变量") @RequestParam("variable")String variable) {
         return iTaskService.getVarables(executionId, variable);
     }
 
