@@ -3,7 +3,9 @@ package com.snn.workflow.entity;
 import java.io.Serializable;
 
 public class WxProjectItem implements Serializable {
-    private Integer id;
+    private Integer projectid;
+
+    private String processdefid;
 
     private String projectname;
 
@@ -11,25 +13,37 @@ public class WxProjectItem implements Serializable {
 
     private Float projectbudget;
 
+    private Integer processinstanceid;
+
     private static final long serialVersionUID = 1L;
 
-    public WxProjectItem(Integer id, String projectname, String projecttype, Float projectbudget) {
-        this.id = id;
+    public WxProjectItem(Integer projectid, String processdefid, String projectname, String projecttype, Float projectbudget, Integer processinstanceid) {
+        this.projectid = projectid;
+        this.processdefid = processdefid;
         this.projectname = projectname;
         this.projecttype = projecttype;
         this.projectbudget = projectbudget;
+        this.processinstanceid = processinstanceid;
     }
 
     public WxProjectItem() {
         super();
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getProjectid() {
+        return projectid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProjectid(Integer projectid) {
+        this.projectid = projectid;
+    }
+
+    public String getProcessdefid() {
+        return processdefid;
+    }
+
+    public void setProcessdefid(String processdefid) {
+        this.processdefid = processdefid == null ? null : processdefid.trim();
     }
 
     public String getProjectname() {
@@ -56,16 +70,26 @@ public class WxProjectItem implements Serializable {
         this.projectbudget = projectbudget;
     }
 
+    public Integer getProcessinstanceid() {
+        return processinstanceid;
+    }
+
+    public void setProcessinstanceid(Integer processinstanceid) {
+        this.processinstanceid = processinstanceid;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
+        sb.append(", projectid=").append(projectid);
+        sb.append(", processdefid=").append(processdefid);
         sb.append(", projectname=").append(projectname);
         sb.append(", projecttype=").append(projecttype);
         sb.append(", projectbudget=").append(projectbudget);
+        sb.append(", processinstanceid=").append(processinstanceid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

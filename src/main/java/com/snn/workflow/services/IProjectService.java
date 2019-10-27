@@ -11,4 +11,8 @@ import com.snn.workflow.entity.WxProjectItem;
 public interface IProjectService {
 
     ServiceResponse insertProject(WxProjectItem wxProjectItem);
+
+    ServiceResponse updateProject(WxProjectItem wxProjectItem, String processDefId);
+
+    ServiceResponse getProjectByProInsId(String ProcessInstanceId);
 }

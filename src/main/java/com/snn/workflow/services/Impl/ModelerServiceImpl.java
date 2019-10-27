@@ -82,6 +82,7 @@ public class ModelerServiceImpl implements IModelerService {
     public ServiceResponse deploy(String id) throws Exception {
         //获取模型
         Model modelData = repositoryService.getModel(id);
+
         byte[] bytes = repositoryService.getModelEditorSource(modelData.getId());
 
         if (bytes == null) {

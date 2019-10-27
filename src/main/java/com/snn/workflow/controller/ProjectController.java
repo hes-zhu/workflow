@@ -6,9 +6,7 @@ import com.snn.workflow.services.IProjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @className projectController
@@ -26,5 +24,17 @@ public class ProjectController {
     @PostMapping("/createProject")
     public ServiceResponse createProject(WxProjectItem wxProjectItem) {
         return iProjectService.insertProject(wxProjectItem);
+    }
+
+    @ApiOperation("根据流程实例ID更新项目")
+    @PutMapping("/{ProcessInstanceId}")
+    public ServiceResponse updateProject(WxProjectItem wxProjectItem, @PathVariable("ProcessInstanceId")String ProcessInstanceId) {
+        return iProjectService.updateProject(wxProjectItem, ProcessInstanceId);
+    }
+
+    @ApiOperation("根据流程实例ID查询项目")
+    @GetMapping("/{ProcessInstanceId}")
+    public ServiceResponse getProjectByProInsId(@PathVariable("ProcessInstanceId")String ProcessInstanceId) {
+        return iProjectService.getProjectByProInsId(ProcessInstanceId);
     }
 }

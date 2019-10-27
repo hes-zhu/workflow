@@ -27,4 +27,4 @@ mybatis:
 
 
 logging:
-  path: C:\Users\SNN\SNN\Desktop\All activiti\workflow\logs
+  path: /Users/lulu/Desktop/Project/workflow/logs

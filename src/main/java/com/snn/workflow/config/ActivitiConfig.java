@@ -31,9 +31,9 @@ public class ActivitiConfig {
         processEngineConfiguration.setTransactionManager(transactionManager);
 
         // 流程图字体
-//        processEngineConfiguration.setActivityFontName("宋体");
-//        processEngineConfiguration.setAnnotationFontName("宋体");
-//        processEngineConfiguration.setLabelFontName("宋体");
+        processEngineConfiguration.setActivityFontName("宋体");
+        processEngineConfiguration.setAnnotationFontName("宋体");
+        processEngineConfiguration.setLabelFontName("宋体");
 
         return processEngineConfiguration;
     }
