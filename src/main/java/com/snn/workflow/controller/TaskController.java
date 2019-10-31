@@ -73,6 +73,12 @@ public class TaskController {
         return iTaskService.startTask(key);
     }
 
+    @ApiOperation("根据processInstanceID关闭流程")
+    @DeleteMapping("close")
+    public ServiceResponse deleteProcessInstance(@ApiParam("流程实例ID") @RequestParam("processInstanceID") String processInstanceID, @ApiParam("删除原因") @RequestParam("reason") String reason) {
+        return iTaskService.deleteProcessInstance(processInstanceID, reason);
+    }
+
     @ApiOperation("根据用户名查询任务")
     @GetMapping("findTask")
     /**

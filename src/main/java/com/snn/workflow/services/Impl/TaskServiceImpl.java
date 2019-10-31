@@ -83,6 +83,15 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
+    public ServiceResponse deleteProcessInstance(String processInstanceID, String reason) {
+        if (StringUtils.isNotBlank(processInstanceID)) {
+            runtimeService.deleteProcessInstance(processInstanceID, reason);
+            return ServiceResponse.createBySuccess();
+        }
+        return ServiceResponse.createByError();
+    }
+
+    @Override
     public ServiceResponse checkTask(String username) {
         if (StringUtils.isNotBlank(username)) {
             String assigned = username;

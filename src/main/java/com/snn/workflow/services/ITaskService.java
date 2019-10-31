@@ -16,6 +16,8 @@ public interface ITaskService {
 
     ServiceResponse startTask(String key);
 
+    ServiceResponse deleteProcessInstance(String processInstanceID, String reason);
+
     ServiceResponse checkTask(String username);
 
     ServiceResponse completeTask(String taskId, Map<String, Object> map);

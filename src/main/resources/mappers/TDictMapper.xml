@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snn.workflow.dao.TDictMapper">
+  <resultMap id="BaseResultMap" type="com.snn.workflow.entity.TDict">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="DICTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DICTCHNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STDCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DICTDECIPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ORDERCODE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="REMARKS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STATUS" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="NATURE_MARK" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="ENABLEMARK" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_dict
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.snn.workflow.entity.TDict">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_dict (DICTCODE, DICTCHNAME, STDCODE, 
+      DICTDECIPT, PID, ORDERCODE, 
+      REMARKS, `STATUS`, NATURE_MARK, 
+      ENABLEMARK)
+    values (#{dictcode,jdbcType=VARCHAR}, #{dictchname,jdbcType=VARCHAR}, #{stdcode,jdbcType=VARCHAR}, 
+      #{dictdecipt,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, #{ordercode,jdbcType=INTEGER}, 
+      #{remarks,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{natureMark,jdbcType=CHAR}, 
+      #{enablemark,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.snn.workflow.entity.TDict">
+    update t_dict
+    set DICTCODE = #{dictcode,jdbcType=VARCHAR},
+      DICTCHNAME = #{dictchname,jdbcType=VARCHAR},
+      STDCODE = #{stdcode,jdbcType=VARCHAR},
+      DICTDECIPT = #{dictdecipt,jdbcType=VARCHAR},
+      PID = #{pid,jdbcType=INTEGER},
+      ORDERCODE = #{ordercode,jdbcType=INTEGER},
+      REMARKS = #{remarks,jdbcType=VARCHAR},
+      `STATUS` = #{status,jdbcType=CHAR},
+      NATURE_MARK = #{natureMark,jdbcType=CHAR},
+      ENABLEMARK = #{enablemark,jdbcType=CHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ID, DICTCODE, DICTCHNAME, STDCODE, DICTDECIPT, PID, ORDERCODE, REMARKS, `STATUS`, 
+    NATURE_MARK, ENABLEMARK
+    from t_dict
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, DICTCODE, DICTCHNAME, STDCODE, DICTDECIPT, PID, ORDERCODE, REMARKS, `STATUS`, 
+    NATURE_MARK, ENABLEMARK
+    from t_dict
+  </select>
+  <select id="selectAllByPID" resultMap="BaseResultMap">
+    select ID, DICTCODE, DICTCHNAME, STDCODE, DICTDECIPT, PID, ORDERCODE, REMARKS, `STATUS`,
+    NATURE_MARK, ENABLEMARK
+    from t_dict
+    where PID = 3
+  </select>
+</mapper>
