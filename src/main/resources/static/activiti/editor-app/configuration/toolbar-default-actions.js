@@ -262,7 +262,7 @@ KISBPM.TOOLBAR = {
         
         closeEditor: function(services) {
         	// window.location.href = "./success.html";
-        	window.location.href = "http://39.105.153.251:8081/#/model";
+        	window.location.href = "http://39.105.153.251:8081/#/processManage/model";
         },
         
         /**
@@ -328,7 +328,7 @@ var SaveModelCtrl = [ '$rootScope', '$scope', '$http', '$route', '$location',
     $scope.saveAndClose = function () {
     	$scope.save(function() {
     		// window.location.href = "./success.html";
-    		window.location.href = "http://39.105.153.251:8081/#/model";
+    		window.location.href = "http://39.105.153.251:8081/#/processManage/model";
     	});
     };
     $scope.save = function (successCallback) {

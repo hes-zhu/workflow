@@ -40,8 +40,8 @@ public class UserController {
     public ServiceResponse<User> login(@ApiParam("用户名") @RequestParam("username") String username, @ApiParam("密码") @RequestParam("password") String password, HttpSession session) {
         ServiceResponse<User> response = iUserService.login(username, password);
         if(response.isSuccess()) {
-//            session.setAttribute(Const.CURRENT_USER, response.getData());
-        session.setAttribute(Const.CURRENT_USER, response.getData());
+            session.setAttribute(Const.CURRENT_USER, response.getData());
+//        session.setAttribute(Const.CURRENT_USER, response.getData());
     }
 
         return response;

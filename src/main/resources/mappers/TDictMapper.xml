@@ -58,10 +58,4 @@
     NATURE_MARK, ENABLEMARK
     from t_dict
   </select>
-  <select id="selectAllByPID" resultMap="BaseResultMap">
-    select ID, DICTCODE, DICTCHNAME, STDCODE, DICTDECIPT, PID, ORDERCODE, REMARKS, `STATUS`,
-    NATURE_MARK, ENABLEMARK
-    from t_dict
-    where PID = 3
-  </select>
 </mapper>

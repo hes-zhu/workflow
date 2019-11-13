@@ -96,6 +96,7 @@ public class TaskServiceImpl implements ITaskService {
         if (StringUtils.isNotBlank(username)) {
             String assigned = username;
             List<Task> lists = taskService.createTaskQuery().taskAssignee(assigned).list();
+//            List<Task> lists = taskService.createTaskQuery().list();
 
             List<Object> taskList = new ArrayList<>();
             if (null != lists && lists.size() > 0) {
@@ -105,6 +106,7 @@ public class TaskServiceImpl implements ITaskService {
                     taskMap.put("assignee", task.getAssignee());
                     taskMap.put("createTime", task.getCreateTime());
                     taskMap.put("name", task.getName());
+                    taskMap.put("formKey", task.getFormKey());
                     taskMap.put("processDefinitionId", task.getProcessDefinitionId());
                     taskMap.put("processInstanceId", task.getProcessInstanceId());
                     taskMap.put("taskDefinitionKey", task.getTaskDefinitionKey());
@@ -145,7 +147,6 @@ public class TaskServiceImpl implements ITaskService {
             varables.put("result", result);
         }
 
-        System.out.println(varables);
         taskService.complete(taskId, varables);
 
         return ServiceResponse.createBySuccess();

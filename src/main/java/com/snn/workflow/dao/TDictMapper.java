@@ -13,6 +13,4 @@ public interface TDictMapper {
     List<TDict> selectAll();
 
     int updateByPrimaryKey(TDict record);
-
-    TDict selectAllByPID();
 }
