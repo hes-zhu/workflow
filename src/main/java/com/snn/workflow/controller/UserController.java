@@ -8,6 +8,11 @@ import com.snn.workflow.services.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -207,6 +212,21 @@ public class UserController {
             return ServiceResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录，请先登录");
         }
         return iUserService.getInfomation(currentUser.getId());
+    }
+
+    @PostMapping
+    public String loginto(@ApiParam("用户名") @RequestParam("username") String username, @ApiParam("密码") @RequestParam("password") String password, HttpSession session) {
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+
+        try {
+            subject.login(token);
+            return "success";
+        } catch (UnknownAccountException e) {
+            return "账号不存在";
+        } catch (IncorrectCredentialsException e) {
+            return "密码错误";
+        }
     }
 
 }

@@ -10,7 +10,7 @@ public class Opinion implements Serializable {
 
     private String projectname;
 
-    private String state;
+    private Integer state;
 
     private Date createTime;
 
@@ -20,7 +20,7 @@ public class Opinion implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Opinion(Integer opinionid, Integer projectid, String projectname, String state, Date createTime, Date updateTime, String content) {
+    public Opinion(Integer opinionid, Integer projectid, String projectname, Integer state, Date createTime, Date updateTime, String content) {
         this.opinionid = opinionid;
         this.projectid = projectid;
         this.projectname = projectname;
@@ -58,12 +58,12 @@ public class Opinion implements Serializable {
         this.projectname = projectname == null ? null : projectname.trim();
     }
 
-    public String getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public Date getCreateTime() {

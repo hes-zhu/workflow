@@ -8,6 +8,8 @@ import com.snn.workflow.services.IOpinionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @className OpinionServiceImpl
  * @Author lulu
@@ -29,8 +31,8 @@ public class OpinionServiceImpl implements IOpinionService {
     }
 
     @Override
-    public ServiceResponse getOpinionById(Integer id) {
-        Opinion result = opinionMapper.selectByPrimaryKey(id);
+    public ServiceResponse getOpinionById(Integer projectId) {
+        List result = opinionMapper.selectByProjectId(projectId);
         if (result == null) {
             return ServiceResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
