@@ -11,5 +11,5 @@ import com.snn.workflow.entity.Opinion;
 public interface IOpinionService {
     ServiceResponse insert(Opinion opinion);
 
-    ServiceResponse getOpinionById(Integer projectId);
+    ServiceResponse<Opinion> getOpinionById(Integer projectId);
 }

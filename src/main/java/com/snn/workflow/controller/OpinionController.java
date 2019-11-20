@@ -30,7 +30,7 @@ public class OpinionController {
 
     @ApiOperation("查询一条意见")
     @GetMapping
-    public ServiceResponse getOne(@RequestParam("projectId") @ApiParam("projectId") Integer projectId) {
+    public ServiceResponse<Opinion> getOne(@RequestParam("projectId") @ApiParam("projectId") Integer projectId) {
         return opinionService.getOpinionById(projectId);
     }
 }

@@ -2,9 +2,11 @@ package com.snn.workflow.dao;
 
 import com.snn.workflow.entity.WxProjectItem;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface WxProjectItemMapper {
     int deleteByPrimaryKey(Integer projectid);
 
