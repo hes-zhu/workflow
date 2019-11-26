@@ -42,6 +42,19 @@ public class ProjectinfoServiceImpl implements IProjectinfoService {
         if (ProcessInstanceId.isEmpty()) {
             return ServiceResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
-        return projectinfoMapper.getProjectByProInsId(Integer.parseInt(ProcessInstanceId));
+        Projectinfo projectinfo = projectinfoMapper.getProjectByProInsId(Integer.parseInt(ProcessInstanceId));
+        if (projectinfo == null) {
+            return ServiceResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+        return ServiceResponse.createBySuccess(projectinfo);
+    }
+
+    @Override
+    public ServiceResponse updateProjectState(String id, String state) {
+        int resultCount = projectinfoMapper.updateProjectState(Integer.parseInt(id), Integer.parseInt(state));
+        if (resultCount == 0) {
+            return ServiceResponse.createByErrorMessage("项目状态更新失败");
+        }
+        return ServiceResponse.createBySuccessMessage("项目状态更新成功");
     }
 }

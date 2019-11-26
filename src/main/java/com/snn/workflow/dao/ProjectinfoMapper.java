@@ -5,6 +5,8 @@ import com.snn.workflow.entity.Projectinfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProjectinfoMapper {
     int deleteByPrimaryKey(Integer id);
@@ -13,11 +15,13 @@ public interface ProjectinfoMapper {
 
     Projectinfo selectByPrimaryKey(Integer id);
 
-    ServiceResponse<Projectinfo> selectAll();
+    List<Projectinfo> selectAll();
 
     int updateByPrimaryKey(Projectinfo record);
 
     int updateByProcessInstanceId(Projectinfo record);
 
-    ServiceResponse<Projectinfo> getProjectByProInsId(@Param("ProcessInstanceId") Integer ProcessInstanceId);
+    Projectinfo getProjectByProInsId(@Param("ProcessInstanceId") Integer ProcessInstanceId);
+
+    int updateProjectState(@Param("id") Integer id, @Param("state") Integer state);
 }

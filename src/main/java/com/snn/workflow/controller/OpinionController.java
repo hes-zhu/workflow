@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  **/
 @Api("意见控制器")
 @RestController
-@RequestMapping("/api/opinion/")
+@RequestMapping("/api/opinion")
 public class OpinionController {
 
     @Autowired
@@ -30,7 +30,7 @@ public class OpinionController {
 
     @ApiOperation("查询一条意见")
     @GetMapping
-    public ServiceResponse<Opinion> getOne(@RequestParam("projectId") @ApiParam("projectId") Integer projectId) {
-        return opinionService.getOpinionById(projectId);
+    public ServiceResponse getOne(@RequestParam("projectId") @ApiParam("projectId") String projectId) {
+        return opinionService.getOpinionById(Integer.parseInt(projectId));
     }
 }

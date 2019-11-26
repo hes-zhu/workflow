@@ -4,6 +4,8 @@ import com.snn.workflow.common.ServiceResponse;
 import com.snn.workflow.entity.Projectinfo;
 import com.snn.workflow.entity.WxProjectItem;
 
+import java.security.Provider;
+
 /**
  * @className IProjectinfoService
  * @Author lulu
@@ -16,4 +18,6 @@ public interface IProjectinfoService {
     ServiceResponse updateProject(Projectinfo projectinfo);
 
     ServiceResponse<Projectinfo> getProjectByProInsId(String ProcessInstanceId);
+
+    ServiceResponse updateProjectState(String id, String state);
 }

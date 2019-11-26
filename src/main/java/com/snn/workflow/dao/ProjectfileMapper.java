@@ -12,7 +12,7 @@ public interface ProjectfileMapper {
 
     Projectfile selectByPrimaryKey(Integer id);
 
-    ServiceResponse<Projectfile> selectAll();
+    Projectfile selectAll();
 
     int updateByPrimaryKey(Projectfile record);
 }

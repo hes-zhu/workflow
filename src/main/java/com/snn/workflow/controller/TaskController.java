@@ -13,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.activiti.engine.history.HistoricTaskInstance;
+import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -138,8 +139,22 @@ public class TaskController {
         return iTaskService.getTaskName(executionId);
     }
 
-    @ApiOperation("上传任务过程中需要提交的附件")
-    @PostMapping("upload")
+    @ApiOperation("根据流程实例ID查询任务")
+    @GetMapping("{processInstanceId}")
+    /**
+     * @auther: lulu
+     * @Description: 根据流程实例ID查询任务
+     * @MethodName: getTaskByProInsId
+     * @return: com.snn.workflow.common.ServiceResponse<org.activiti.engine.task.Task>
+     * @param: [processInstanceId]
+     * @date: 2019/11/26 下午8:35
+     **/
+    public ServiceResponse getTaskByProInsId(@PathVariable("processInstanceId") String processInstanceId) {
+        return iTaskService.getTaskByProInsId(processInstanceId);
+    }
+
+//    @ApiOperation("上传任务过程中需要提交的附件")
+//    @PostMapping("upload")
     /**
      * @auther: SNN
      * @Description: 上传任务过程中需要提交的附件
@@ -147,6 +162,7 @@ public class TaskController {
      * @return: com.snn.workflow.common.ServiceResponse
      * @param: [session, file, request]
      * @date: 2019/9/25 20:46
+     * 没用ftp文件上传下载模块，改为了本地存储
      **/
     public ServiceResponse upload(HttpSession session, @RequestParam(value = "upload_file",required = false) MultipartFile file, HttpServletRequest request) {
 //        User user = (User)session.getAttribute(Const.CURRENT_USER);
@@ -166,8 +182,8 @@ public class TaskController {
         return ServiceResponse.createBySuccess(fileMap);
     }
 
-    @ApiOperation("任务执行中需要下载的文件")
-    @GetMapping("download")
+//    @ApiOperation("任务执行中需要下载的文件")
+//    @GetMapping("download")
     /**
      * @auther: SNN
      * @Description: 任务执行中需要下载的文件
@@ -175,6 +191,7 @@ public class TaskController {
      * @return: com.snn.workflow.common.ServiceResponse
      * @param: [filePath, response]
      * @date: 2019/9/25 20:47
+     * 没用ftp文件上传下载模块，改为了本地存储
      **/
     public ServiceResponse download(@RequestParam("filePath")@ApiParam("文件路径") String filePath, @RequestParam("fileName")@ApiParam("文件名-包括后缀") String fileName, HttpServletResponse response) throws IOException {
         // 文件名

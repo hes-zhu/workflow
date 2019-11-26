@@ -26,7 +26,6 @@
     update projectfile
     set projectid = #{projectid,jdbcType=INTEGER},
       url = #{url,jdbcType=VARCHAR},
-      createtime = now(),
       updatetime = now()
     where id = #{id,jdbcType=INTEGER}
   </update>

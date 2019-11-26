@@ -1,6 +1,5 @@
 package com.snn.workflow.dao;
 
-import com.snn.workflow.common.ServiceResponse;
 import com.snn.workflow.entity.Opinion;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -19,5 +18,5 @@ public interface OpinionMapper {
 
     int updateByPrimaryKey(Opinion record);
 
-    ServiceResponse<Opinion> selectByProjectId(@Param("projectId") Integer projectId);
+    List<Opinion> selectByProjectId(@Param("projectId") Integer projectId);
 }

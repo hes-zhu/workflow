@@ -36,7 +36,13 @@ public class ProjectinfoController {
 
     @ApiOperation("根据流程实例ID查询项目")
     @GetMapping("/{ProcessInstanceId}")
-    public ServiceResponse<Projectinfo> getProjectByProInsId(@PathVariable("ProcessInstanceId")String ProcessInstanceId) {
+    public ServiceResponse<Projectinfo> getProjectByProInsId(@PathVariable("ProcessInstanceId") String ProcessInstanceId) {
         return iProjectinfoService.getProjectByProInsId(ProcessInstanceId);
+    }
+
+    @ApiOperation("根据流程实例ID更改项目状态")
+    @PutMapping("/{id}")
+    public ServiceResponse updateProjectState(@PathVariable("id") String id, @RequestParam("state") String state) {
+        return iProjectinfoService.updateProjectState(id, state);
     }
 }

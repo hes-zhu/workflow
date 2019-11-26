@@ -12,6 +12,10 @@ public class Opinion implements Serializable {
 
     private Integer state;
 
+    private String fromnode;
+
+    private String tonode;
+
     private Date createTime;
 
     private Date updateTime;
@@ -20,11 +24,13 @@ public class Opinion implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Opinion(Integer opinionid, Integer projectid, String projectname, Integer state, Date createTime, Date updateTime, String content) {
+    public Opinion(Integer opinionid, Integer projectid, String projectname, Integer state, String fromnode, String tonode, Date createTime, Date updateTime, String content) {
         this.opinionid = opinionid;
         this.projectid = projectid;
         this.projectname = projectname;
         this.state = state;
+        this.fromnode = fromnode;
+        this.tonode = tonode;
         this.createTime = createTime;
         this.updateTime = updateTime;
         this.content = content;
@@ -66,6 +72,22 @@ public class Opinion implements Serializable {
         this.state = state;
     }
 
+    public String getFromnode() {
+        return fromnode;
+    }
+
+    public void setFromnode(String fromnode) {
+        this.fromnode = fromnode == null ? null : fromnode.trim();
+    }
+
+    public String getTonode() {
+        return tonode;
+    }
+
+    public void setTonode(String tonode) {
+        this.tonode = tonode == null ? null : tonode.trim();
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -100,6 +122,8 @@ public class Opinion implements Serializable {
         sb.append(", projectid=").append(projectid);
         sb.append(", projectname=").append(projectname);
         sb.append(", state=").append(state);
+        sb.append(", fromnode=").append(fromnode);
+        sb.append(", tonode=").append(tonode);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", content=").append(content);

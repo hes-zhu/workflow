@@ -53,8 +53,7 @@
       answer = #{answer,jdbcType=VARCHAR},
       userface = #{userface,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
-      now(),
-      now()
+      updatetime = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">

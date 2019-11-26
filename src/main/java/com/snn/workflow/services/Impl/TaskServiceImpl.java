@@ -154,7 +154,7 @@ public class TaskServiceImpl implements ITaskService {
 
     @Override
     public ServiceResponse viewProcessImage() {
-        // todo
+        // todo 获取流程图图片
         return null;
     }
 
@@ -178,6 +178,29 @@ public class TaskServiceImpl implements ITaskService {
             }
             taskNameList.add(taskNameMap);
             return ServiceResponse.createBySuccess(taskNameList);
+        }
+        return ServiceResponse.createByError();
+    }
+
+    @Override
+    public ServiceResponse getTaskByProInsId(String processInstanceId) {
+        List<Task> tasks = taskService.createTaskQuery().list();
+        List<Object> taskList = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getProcessInstanceId().equals(processInstanceId)) {
+                Map<String, Object> taskMap = new HashMap<>();
+                taskMap.put("id", task.getId());
+                taskMap.put("assignee", task.getAssignee());
+                taskMap.put("createTime", task.getCreateTime());
+                taskMap.put("name", task.getName());
+                taskMap.put("formKey", task.getFormKey());
+                taskMap.put("processDefinitionId", task.getProcessDefinitionId());
+                taskMap.put("processInstanceId", task.getProcessInstanceId());
+                taskMap.put("taskDefinitionKey", task.getTaskDefinitionKey());
+                taskMap.put("executionId", task.getExecutionId());
+                taskList.add(taskMap);
+                return ServiceResponse.createBySuccess(taskList);
+            }
         }
         return ServiceResponse.createByError();
     }

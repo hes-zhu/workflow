@@ -7,6 +7,8 @@
       <arg column="PROJECTID" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="PROJECTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="State" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fromNode" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="toNode" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="Content" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
@@ -18,34 +20,40 @@
   </delete>
   <insert id="insert" parameterType="com.snn.workflow.entity.Opinion">
     insert into opinion (OpinionID, PROJECTID, PROJECTNAME, 
-      `State`, create_time, update_time, 
-      Content)
+      `State`, fromNode, toNode, 
+      create_time, update_time, Content
+      )
     values (#{opinionid,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, #{projectname,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, now(), now(),
-      #{content,jdbcType=LONGVARCHAR})
+      #{state,jdbcType=INTEGER}, #{fromnode,jdbcType=VARCHAR}, #{tonode,jdbcType=VARCHAR}, 
+      now(), now(), #{content,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.snn.workflow.entity.Opinion">
     update opinion
     set PROJECTID = #{projectid,jdbcType=INTEGER},
       PROJECTNAME = #{projectname,jdbcType=VARCHAR},
       `State` = #{state,jdbcType=INTEGER},
-      create_time = now(),
+      fromNode = #{fromnode,jdbcType=VARCHAR},
+      toNode = #{tonode,jdbcType=VARCHAR},
       update_time = now(),
       Content = #{content,jdbcType=LONGVARCHAR}
     where OpinionID = #{opinionid,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select OpinionID, PROJECTID, PROJECTNAME, `State`, create_time, update_time, Content
+    select OpinionID, PROJECTID, PROJECTNAME, `State`, fromNode, toNode, create_time,
+    update_time, Content
     from opinion
     where OpinionID = #{opinionid,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select OpinionID, PROJECTID, PROJECTNAME, `State`, create_time, update_time, Content
+    select OpinionID, PROJECTID, PROJECTNAME, `State`, fromNode, toNode, create_time,
+    update_time, Content
     from opinion
   </select>
   <select id="selectByProjectId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select OpinionID, PROJECTID, PROJECTNAME, `State`, create_time, update_time, Content
+    select OpinionID, PROJECTID, PROJECTNAME, `State`, fromNode, toNode, create_time,
+    update_time, Content
     from opinion
-    where PROJECTID = #{projectId,jdbcType=INTEGER}
+    where PROJECTID = #{projectId}
   </select>
 </mapper>

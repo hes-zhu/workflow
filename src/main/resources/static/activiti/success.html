@@ -7,14 +7,13 @@
 <body>
     <h1>Success GO Page!!!</h1>
     <h3>springmvc上传文件</h3>
-    <form name="form1" action="/api/task/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="upload_file" />
+    <form name="form1" action="/api/file" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="text" name="projectId" />
         <input type="submit" value="springmvc上传文件" />
     </form>
 
-    <a href="ftp://39.105.153.251/mmall.sql">下载</a>
-    <form action="/api/task/download" method="get">
-        <input type="text" name="filePath" value="/test"/>
+    <form action="/api/file" method="get">
         <input type="text" name="fileName" value="esi.sql" />
         <input type="submit" value="下载文件" />
     </form>

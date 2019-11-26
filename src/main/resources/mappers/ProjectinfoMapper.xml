@@ -42,7 +42,6 @@
       unit = #{unit,jdbcType=VARCHAR},
       `time` = #{time,jdbcType=VARCHAR},
       `state` = #{state,jdbcType=INTEGER},
-      createtime = now(),
       updatetime = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -59,17 +58,15 @@
   </select>
   <update id="updateByProcessInstanceId" parameterType="com.snn.workflow.entity.Projectinfo">
     update projectinfo
-    set processInstanceId = #{processinstanceid,jdbcType=INTEGER},
-      `name` = #{name,jdbcType=VARCHAR},
+    set `name` = #{name,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=VARCHAR},
       budget = #{budget,jdbcType=REAL},
       property = #{property,jdbcType=VARCHAR},
       unit = #{unit,jdbcType=VARCHAR},
       `time` = #{time,jdbcType=VARCHAR},
       `state` = #{state,jdbcType=INTEGER},
-      createtime = now(),
       updatetime = now()
-    where processInstanceId = #{processInstanceId, jdbcType=INTEGER}
+    where processInstanceId = #{processinstanceid, jdbcType=INTEGER}
   </update>
   <select id="getProjectByProInsId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, processInstanceId, `name`, `type`, budget, property, unit, `time`, `state`,
@@ -77,4 +74,10 @@
     from projectinfo
     where processInstanceId = #{ProcessInstanceId}
   </select>
+  <update id="updateProjectState" parameterType="java.lang.Integer">
+    update projectinfo
+    set `state` = #{state,jdbcType=INTEGER},
+      updatetime = now()
+    where id = #{id}
+  </update>
 </mapper>

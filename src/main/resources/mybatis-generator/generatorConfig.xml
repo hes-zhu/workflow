@@ -88,7 +88,7 @@
              只有匹配的表才会自动生成文件 -->
         <!--如果想生成一个表则tableName="table_name"-->
 <!--        <table tableName="TableName"-->
-        <table tableName="projectinfo"
+        <table tableName="opinion"
                enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true"

@@ -31,11 +31,11 @@ public class OpinionServiceImpl implements IOpinionService {
     }
 
     @Override
-    public ServiceResponse<Opinion> getOpinionById(Integer projectId) {
-        ServiceResponse<Opinion> result = opinionMapper.selectByProjectId(projectId);
-        if (result == null) {
+    public ServiceResponse getOpinionById(Integer projectId) {
+        List<Opinion> opinion = opinionMapper.selectByProjectId(projectId);
+        if (opinion == null) {
             return ServiceResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
-        return result;
+        return ServiceResponse.createBySuccess(opinion);
     }
 }

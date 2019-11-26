@@ -2,6 +2,7 @@ package com.snn.workflow.services;
 
 
 import com.snn.workflow.common.ServiceResponse;
+import org.activiti.engine.task.Task;
 
 import java.util.Map;
 
@@ -27,4 +28,6 @@ public interface ITaskService {
     ServiceResponse getVarables(String executionId, String variable);
 
     ServiceResponse getTaskName(String executionId);
+
+    ServiceResponse getTaskByProInsId(String processInstanceId);
 }

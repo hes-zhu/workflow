@@ -1,6 +1,10 @@
 package com.snn.workflow.services;
 
+import com.snn.workflow.common.ServiceResponse;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @className IFileService
@@ -8,7 +12,16 @@ import org.springframework.web.multipart.MultipartFile;
  * @Date 2019/9/24 17:54
  **/
 public interface IFileService {
+
+    // 舍弃
     String upload(MultipartFile file, String path);
 
+    // 舍弃
     byte[] downloadFile(String filePath, String fileName);
+
+    ServiceResponse upload(MultipartFile file, Integer projectId);
+
+    ServiceResponse manyUpload(MultipartFile[] files, Integer projectId);
+
+    ServiceResponse fileDownload(HttpServletResponse res, HttpServletRequest req, String fileName);
 }
