@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snn.workflow.dao.FiletemplateMapper">
+  <resultMap id="BaseResultMap" type="com.snn.workflow.entity.Filetemplate">
+    <constructor>
+      <idArg column="fileId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fileName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="projectType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fileUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="enable" javaType="java.lang.Boolean" jdbcType="BIT" />
+    </constructor>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from filetemplate
+    where fileId = #{fileid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.snn.workflow.entity.Filetemplate">
+    insert into filetemplate (fileId, fileName, projectType, 
+      fileUrl, `enable`)
+    values (#{fileid,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, #{projecttype,jdbcType=VARCHAR}, 
+      #{fileurl,jdbcType=VARCHAR}, #{enable,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.snn.workflow.entity.Filetemplate">
+    update filetemplate
+    set fileName = #{filename,jdbcType=VARCHAR},
+      projectType = #{projecttype,jdbcType=VARCHAR},
+      fileUrl = #{fileurl,jdbcType=VARCHAR},
+      `enable` = #{enable,jdbcType=BIT}
+    where fileId = #{fileid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select fileId, fileName, projectType, fileUrl, `enable`
+    from filetemplate
+    where fileId = #{fileid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select fileId, fileName, projectType, fileUrl, `enable`
+    from filetemplate
+  </select>
+</mapper>

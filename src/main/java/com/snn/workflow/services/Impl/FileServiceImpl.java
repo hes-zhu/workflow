@@ -106,7 +106,7 @@ public class FileServiceImpl implements IFileService {
         String fileNamePrefix = fileName.substring(0 , fileName.lastIndexOf("."));
         fileName = fileNamePrefix + "-" + System.currentTimeMillis() + "." + fileNameSuffix;//获取上传文件名
         // 文件名存放数据库
-        saveFileUrl(FILEPATH+fileName, projectId);
+        saveFileUrl(FILEPATH+"/"+fileName, projectId);
         //5.判断文件夹是否存在
         File targetFile = new File(FILEPATH + "/" + fileName);
         if (!targetFile.getParentFile().exists()) {
@@ -146,7 +146,7 @@ public class FileServiceImpl implements IFileService {
             String fileNamePrefix = fileName.substring(0 , fileName.lastIndexOf("."));
             fileName = fileNamePrefix + "-" + UUID.randomUUID().toString() + "." + fileNameSuffix;
             // 文件名存放数据库
-            saveFileUrl(FILEPATH+fileName, projectId);
+            saveFileUrl(FILEPATH+"/"+fileName, projectId);
             //5.判断文件夹是否存在
             File targetFile = new File(FILEPATH + "/" + fileName);
             if (!targetFile.getParentFile().exists()) {

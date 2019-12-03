@@ -40,7 +40,7 @@ public class ProjectinfoController {
         return iProjectinfoService.getProjectByProInsId(ProcessInstanceId);
     }
 
-    @ApiOperation("根据流程实例ID更改项目状态")
+    @ApiOperation("根据项目ID更改项目状态")
     @PutMapping("/{id}")
     public ServiceResponse updateProjectState(@PathVariable("id") String id, @RequestParam("state") String state) {
         return iProjectinfoService.updateProjectState(id, state);

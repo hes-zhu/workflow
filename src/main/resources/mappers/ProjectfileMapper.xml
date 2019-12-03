@@ -38,4 +38,9 @@
     select id, projectid, url, createtime, updatetime
     from projectfile
   </select>
+  <select id="selectByProjectId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, projectid, url, createtime, updatetime
+    from projectfile
+    where projectid = #{projectId}
+  </select>
 </mapper>

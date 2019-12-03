@@ -1,8 +1,10 @@
 package com.snn.workflow.dao;
 
-import com.snn.workflow.common.ServiceResponse;
 import com.snn.workflow.entity.Projectfile;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface ProjectfileMapper {
@@ -12,7 +14,9 @@ public interface ProjectfileMapper {
 
     Projectfile selectByPrimaryKey(Integer id);
 
-    Projectfile selectAll();
+    List<Projectfile> selectAll();
 
     int updateByPrimaryKey(Projectfile record);
+
+    List<Projectfile> selectByProjectId(@Param("projectId") Integer projectId);
 }

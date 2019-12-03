@@ -29,3 +29,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### log ###
+logs/
+
+### file ###
+src/main/resources/static/file/
