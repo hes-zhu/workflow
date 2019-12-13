@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @className IFileService
@@ -19,9 +20,9 @@ public interface IFileService {
     // 舍弃
     byte[] downloadFile(String filePath, String fileName);
 
-    ServiceResponse upload(MultipartFile file, Integer projectId);
+    String upload(MultipartFile file);
 
-    ServiceResponse manyUpload(MultipartFile[] files, Integer projectId);
+    List<String> manyUpload(MultipartFile[] files);
 
     ServiceResponse fileDownload(HttpServletResponse res, HttpServletRequest req, String fileName);
 }

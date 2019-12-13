@@ -10,4 +10,8 @@ import com.snn.workflow.common.ServiceResponse;
 public interface IProjectfileService {
 
     ServiceResponse showFile(Integer projectId);
+
+    ServiceResponse upload(String fileUrl, Integer projectId);
+
+    ServiceResponse updateFileState(Integer id);
 }

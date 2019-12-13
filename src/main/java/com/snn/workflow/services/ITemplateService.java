@@ -17,5 +17,7 @@ public interface ITemplateService {
     ServiceResponse deleteOrder(Integer id);
 
     ServiceResponse updateOrder(Filetemplate filetemplate);
+
+    ServiceResponse getTemplate(String projectType, Integer enable, String str);
 }
 

@@ -46,10 +46,16 @@ public class TemplateServiceImpl implements ITemplateService {
 
     @Override
     public ServiceResponse updateOrder(Filetemplate filetemplate) {
-        Integer order = filetemplateMapper.insert(filetemplate);
+        Integer order = filetemplateMapper.updateByPrimaryKey(filetemplate);
         if (order == 0) {
             return ServiceResponse.createBySuccessMessage("更新记录失败");
         }
         return ServiceResponse.createBySuccessMessage("更新成功");
+    }
+
+    @Override
+    public ServiceResponse getTemplate(String projectType, Integer enable, String str) {
+        String url = filetemplateMapper.getTemplate(projectType, enable, str);
+        return ServiceResponse.createBySuccess(url);
     }
 }

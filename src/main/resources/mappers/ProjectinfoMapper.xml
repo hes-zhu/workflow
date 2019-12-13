@@ -76,7 +76,7 @@
   </select>
   <update id="updateProjectState" parameterType="java.lang.Integer">
     update projectinfo
-    set `state` = #{state,jdbcType=INTEGER},
+    set `state` = #{state},
       updatetime = now()
     where id = #{id}
   </update>

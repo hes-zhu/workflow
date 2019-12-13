@@ -8,6 +8,7 @@
       <arg column="url" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="state" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -19,8 +20,9 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into projectfile (projectid, url, createtime, 
-      updatetime)
-    values (#{projectid,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, now(), now())
+      updatetime, `state`)
+    values (#{projectid,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, now(),
+      now(), 0)
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.snn.workflow.entity.Projectfile">
     update projectfile
@@ -30,17 +32,23 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, projectid, url, createtime, updatetime
+    select id, projectid, url, createtime, updatetime, `state`
     from projectfile
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, projectid, url, createtime, updatetime
+    select id, projectid, url, createtime, updatetime, `state`
     from projectfile
   </select>
   <select id="selectByProjectId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, projectid, url, createtime, updatetime
+    select id, projectid, url, createtime, updatetime, `state`
     from projectfile
-    where projectid = #{projectId}
+    where projectid = #{projectId} and `state` = 0
   </select>
+  <update id="updateFileState" parameterType="java.lang.Integer">
+    update projectfile
+    set `state` = 1,
+        updatetime = now()
+    where id = #{id}
+  </update>
 </mapper>

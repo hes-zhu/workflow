@@ -28,4 +28,25 @@ public class ProjectfileServiceImpl implements IProjectfileService {
         }
         return ServiceResponse.createByError();
     }
+
+    @Override
+    public ServiceResponse upload(String fileUrl, Integer projectId) {
+        Projectfile projectfile = new Projectfile();
+        projectfile.setUrl(fileUrl);
+        projectfile.setProjectid(projectId);
+        int record = projectfileMapper.insert(projectfile);
+        if (record == 0) {
+            return ServiceResponse.createByError();
+        }
+        return ServiceResponse.createBySuccess();
+    }
+
+    @Override
+    public ServiceResponse updateFileState(Integer id) {
+        int record = projectfileMapper.updateFileState(id);
+        if (record != 0) {
+            return ServiceResponse.createBySuccess();
+        }
+        return ServiceResponse.createByError();
+    }
 }

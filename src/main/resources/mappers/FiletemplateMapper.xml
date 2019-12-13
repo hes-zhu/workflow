@@ -7,7 +7,7 @@
       <arg column="fileName" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="projectType" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="fileUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="enable" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="enable" javaType="java.lang.Integer" jdbcType="BIT" />
     </constructor>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -36,5 +36,13 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select fileId, fileName, projectType, fileUrl, `enable`
     from filetemplate
+  </select>
+  <select id="getTemplate" resultType="java.lang.String">
+    select fileUrl
+    from filetemplate
+    where projectType = #{projectType}
+    and `enable` = #{enable}
+    and fileName like CONCAT("%", #{str}, "%")
+    limit 0, 1
   </select>
 </mapper>

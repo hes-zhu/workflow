@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -86,12 +88,12 @@ public class FileServiceImpl implements IFileService {
     }
 
     @Override
-    public ServiceResponse upload(MultipartFile file, Integer projectId) {
+    public String upload(MultipartFile file) {
         //获取上传文件名
         String fileName = file.getOriginalFilename();
         //1.判断文件是否为空(是否上传文件 / 文件内容是否为空)
         if (file.isEmpty()){
-            return ServiceResponse.createByErrorMessage("上传文件不可以为空");
+            LOGGER.error("上传文件不可以为空");
         }
         //2.判断文件后缀名是否符合要求
         String fileNameSuffix = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -99,14 +101,9 @@ public class FileServiceImpl implements IFileService {
 //        if (SUFFIX.indexOf(fileNameSuffix) < 0) {
 //            return ServiceResponse.createByErrorMessage("文件类型不正确");
 //        }
-        //3.判断文件大小是否符合要求
-        // 获取上传文件大小
-        int size = (int) file.getSize();
         //4.将文件重命名，避免文件名相同覆盖文件
         String fileNamePrefix = fileName.substring(0 , fileName.lastIndexOf("."));
         fileName = fileNamePrefix + "-" + System.currentTimeMillis() + "." + fileNameSuffix;//获取上传文件名
-        // 文件名存放数据库
-        saveFileUrl(FILEPATH+"/"+fileName, projectId);
         //5.判断文件夹是否存在
         File targetFile = new File(FILEPATH + "/" + fileName);
         if (!targetFile.getParentFile().exists()) {
@@ -119,17 +116,18 @@ public class FileServiceImpl implements IFileService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ServiceResponse.createBySuccess();
+        return FILEPATH+"/"+fileName;
     }
 
     @Override
-    public ServiceResponse manyUpload(MultipartFile[] files, Integer projectId) {
+    public List<String> manyUpload(MultipartFile[] files) {
         //文件上传位置
+        List<String> lists = new ArrayList<>();
         for (int i = 0; i < files.length; i++){
             //1.判断文件是否为空
             if (files[i].isEmpty()){
                 String errMsg = "第"+ (i+1) +"个文件为空";
-                return ServiceResponse.createByErrorMessage(errMsg);
+                LOGGER.error(errMsg);
             }
             //2.判断文件后缀名是否符合要求
             //获取上传文件名
@@ -139,14 +137,11 @@ public class FileServiceImpl implements IFileService {
 //                String errMsg = "第"+ (i+1) +"文件类型不正确";
 //                return ServiceResponse.createByErrorMessage(errMsg);
 //            }
-            //3.判断文件大小是否符合要求
-            // int size = (int) files[i].getSize();//获取上传文件大小
-            //4.将文件重命名，避免文件名相同覆盖文件
             // 获取上传文件名
             String fileNamePrefix = fileName.substring(0 , fileName.lastIndexOf("."));
             fileName = fileNamePrefix + "-" + UUID.randomUUID().toString() + "." + fileNameSuffix;
             // 文件名存放数据库
-            saveFileUrl(FILEPATH+"/"+fileName, projectId);
+            lists.add(FILEPATH+"/"+fileName);
             //5.判断文件夹是否存在
             File targetFile = new File(FILEPATH + "/" + fileName);
             if (!targetFile.getParentFile().exists()) {
@@ -160,7 +155,7 @@ public class FileServiceImpl implements IFileService {
                 e.printStackTrace();
             }
         }
-        return ServiceResponse.createBySuccess();
+        return lists;
     }
 
     @Override
@@ -236,17 +231,5 @@ public class FileServiceImpl implements IFileService {
                 return "SF";
         }
         return null;
-    }
-
-    /**
-     * 将文件路径存放至数据库
-     * @param url
-     * @param projectId
-     */
-    private void saveFileUrl(String url, Integer projectId) {
-        Projectfile projectfile = new Projectfile();
-        projectfile.setProjectid(projectId);
-        projectfile.setUrl(url);
-        projectfileMapper.insert(projectfile);
     }
 }

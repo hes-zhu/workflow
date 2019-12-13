@@ -11,11 +11,11 @@ public class Filetemplate implements Serializable {
 
     private String fileurl;
 
-    private Boolean enable;
+    private Integer enable;
 
     private static final long serialVersionUID = 1L;
 
-    public Filetemplate(Integer fileid, String filename, String projecttype, String fileurl, Boolean enable) {
+    public Filetemplate(Integer fileid, String filename, String projecttype, String fileurl, Integer enable) {
         this.fileid = fileid;
         this.filename = filename;
         this.projecttype = projecttype;
@@ -59,11 +59,11 @@ public class Filetemplate implements Serializable {
         this.fileurl = fileurl == null ? null : fileurl.trim();
     }
 
-    public Boolean getEnable() {
+    public Integer getEnable() {
         return enable;
     }
 
-    public void setEnable(Boolean enable) {
+    public void setEnable(Integer enable) {
         this.enable = enable;
     }
 

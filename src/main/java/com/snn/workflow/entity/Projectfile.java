@@ -14,14 +14,17 @@ public class Projectfile implements Serializable {
 
     private Date updatetime;
 
+    private Integer state;
+
     private static final long serialVersionUID = 1L;
 
-    public Projectfile(Integer id, Integer projectid, String url, Date createtime, Date updatetime) {
+    public Projectfile(Integer id, Integer projectid, String url, Date createtime, Date updatetime, Integer state) {
         this.id = id;
         this.projectid = projectid;
         this.url = url;
         this.createtime = createtime;
         this.updatetime = updatetime;
+        this.state = state;
     }
 
     public Projectfile() {
@@ -68,6 +71,14 @@ public class Projectfile implements Serializable {
         this.updatetime = updatetime;
     }
 
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -79,6 +90,7 @@ public class Projectfile implements Serializable {
         sb.append(", url=").append(url);
         sb.append(", createtime=").append(createtime);
         sb.append(", updatetime=").append(updatetime);
+        sb.append(", state=").append(state);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

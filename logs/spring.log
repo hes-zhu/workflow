@@ -1,310 +1,114 @@
-2019-12-03 14:46:57.793  INFO 53627 --- [main] com.snn.workflow.WorkFlowApplication     : Starting WorkFlowApplication on lulus-MacBook-Air.local with PID 53627 (/Users/lulu/Desktop/Project/workflow/target/classes started by lulu in /Users/lulu/Desktop/Project/workflow)
-2019-12-03 14:46:57.857  INFO 53627 --- [main] com.snn.workflow.WorkFlowApplication     : No active profile set, falling back to default profiles: default
-2019-12-03 14:47:02.983  INFO 53627 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.snn.workflow.config.ShiroConfig$$EnhancerBySpringCGLIB$$5b7ff788] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 14:47:02.996  INFO 53627 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4bcb475] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 14:47:03.046  INFO 53627 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userRealm' of type [com.snn.workflow.common.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 14:47:03.268  INFO 53627 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 14:47:03.638  INFO 53627 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-12-03 14:47:03.661  INFO 53627 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-12-03 14:47:03.661  INFO 53627 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
-2019-12-03 14:47:03.835  INFO 53627 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-12-03 14:47:03.835  INFO 53627 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5563 ms
-2019-12-03 14:47:04.104  INFO 53627 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-12-03 14:47:04.324  INFO 53627 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2019-12-03 14:47:05.515  INFO 53627 --- [main] o.a.engine.impl.ProcessEngineImpl        : ProcessEngine default created
-2019-12-03 14:47:05.517  INFO 53627 --- [main] o.a.e.i.a.AbstractAsyncJobExecutor       : Starting up the default async job executor [org.activiti.spring.SpringAsyncExecutor].
-2019-12-03 14:47:05.518  INFO 53627 --- [Thread-1] o.a.e.i.a.AcquireTimerJobsRunnable       : starting to acquire async jobs due
-2019-12-03 14:47:05.518  INFO 53627 --- [Thread-2] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : starting to acquire async jobs due
-2019-12-03 14:47:07.197  INFO 53627 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-2019-12-03 14:47:07.742  INFO 53627 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2019-12-03 14:47:07.802  INFO 53627 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2019-12-03 14:47:08.026  INFO 53627 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2019-12-03 14:47:08.226  INFO 53627 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createProjectUsingPOST_1
-2019-12-03 14:47:08.229  INFO 53627 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateProjectUsingPUT_1
-2019-12-03 14:47:08.236  INFO 53627 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createProjectUsingPOST_2
-2019-12-03 14:47:08.242  INFO 53627 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getProjectByProInsIdUsingGET_1
-2019-12-03 14:47:08.245  INFO 53627 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateProjectUsingPUT_2
-2019-12-03 14:47:08.406  INFO 53627 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-03 14:47:08.409  INFO 53627 --- [main] com.snn.workflow.WorkFlowApplication     : Started WorkFlowApplication in 13.37 seconds (JVM running for 18.501)
-2019-12-03 15:43:01.921  INFO 53627 --- [Thread-4] o.a.e.i.a.AbstractAsyncJobExecutor       : Shutting down the default async job executor [org.activiti.spring.SpringAsyncExecutor].
-2019-12-03 15:43:01.921  INFO 53627 --- [Thread-1] o.a.e.i.a.AcquireTimerJobsRunnable       : stopped async job due acquisition
-2019-12-03 15:43:01.921  INFO 53627 --- [Thread-2] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : stopped async job due acquisition
-2019-12-03 15:43:01.939  INFO 53627 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-12-03 15:43:01.958  INFO 53627 --- [Thread-4] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2019-12-03 15:43:08.606  INFO 54069 --- [main] com.snn.workflow.WorkFlowApplication     : Starting WorkFlowApplication on lulus-MacBook-Air.local with PID 54069 (/Users/lulu/Desktop/Project/workflow/target/classes started by lulu in /Users/lulu/Desktop/Project/workflow)
-2019-12-03 15:43:08.607  INFO 54069 --- [main] com.snn.workflow.WorkFlowApplication     : No active profile set, falling back to default profiles: default
-2019-12-03 15:43:10.189  INFO 54069 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.snn.workflow.config.ShiroConfig$$EnhancerBySpringCGLIB$$eeb3e938] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 15:43:10.196  INFO 54069 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$97f0a625] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 15:43:10.226  INFO 54069 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userRealm' of type [com.snn.workflow.common.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 15:43:10.558  INFO 54069 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-12-03 15:43:11.372  INFO 54069 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2019-12-03 15:43:11.412  INFO 54069 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-12-03 15:43:11.412  INFO 54069 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
-2019-12-03 15:43:11.531  INFO 54069 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-12-03 15:43:11.532  INFO 54069 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2872 ms
-2019-12-03 15:43:11.735  INFO 54069 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-12-03 15:43:11.878  INFO 54069 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2019-12-03 15:43:12.729  INFO 54069 --- [main] o.a.engine.impl.ProcessEngineImpl        : ProcessEngine default created
-2019-12-03 15:43:12.731  INFO 54069 --- [main] o.a.e.i.a.AbstractAsyncJobExecutor       : Starting up the default async job executor [org.activiti.spring.SpringAsyncExecutor].
-2019-12-03 15:43:12.732  INFO 54069 --- [Thread-2] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : starting to acquire async jobs due
-2019-12-03 15:43:12.732  INFO 54069 --- [Thread-1] o.a.e.i.a.AcquireTimerJobsRunnable       : starting to acquire async jobs due
-2019-12-03 15:43:13.445  INFO 54069 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-2019-12-03 15:43:13.846  INFO 54069 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2019-12-03 15:43:13.865  INFO 54069 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2019-12-03 15:43:14.032  INFO 54069 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2019-12-03 15:43:14.258  INFO 54069 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createProjectUsingPOST_1
-2019-12-03 15:43:14.261  INFO 54069 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateProjectUsingPUT_1
-2019-12-03 15:43:14.264  INFO 54069 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createProjectUsingPOST_2
-2019-12-03 15:43:14.269  INFO 54069 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getProjectByProInsIdUsingGET_1
-2019-12-03 15:43:14.271  INFO 54069 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateProjectUsingPUT_2
-2019-12-03 15:43:14.387  INFO 54069 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-03 15:43:14.390  INFO 54069 --- [main] com.snn.workflow.WorkFlowApplication     : Started WorkFlowApplication in 6.603 seconds (JVM running for 7.69)
-2019-12-03 16:17:08.296 ERROR 54069 --- [Druid-ConnectionPool-Create-329410765] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false, errorCode 0, state 08S01
+2019-12-12 09:24:00.906 ERROR 40350 --- [Druid-ConnectionPool-Create-1365197105] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false, errorCode 0, state 08S01
 
 com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at jdk.internal.reflect.GeneratedConstructorAccessor76.newInstance(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at jdk.internal.reflect.GeneratedConstructorAccessor77.newInstance(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar:1.1.10]
-Caused by: java.net.ConnectException: Operation timed out
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558) ~[druid-1.1.10.jar!/:1.1.10]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar!/:1.1.10]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar!/:1.1.10]
+Caused by: java.net.SocketException: Network is unreachable
 	at java.base/sun.nio.ch.Net.connect0(Native Method) ~[na:na]
 	at java.base/sun.nio.ch.Net.connect(Net.java:493) ~[na:na]
 	at java.base/sun.nio.ch.Net.connect(Net.java:482) ~[na:na]
 	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588) ~[na:na]
 	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:339) ~[na:na]
 	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
-	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	... 16 common frames omitted
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	... 15 common frames omitted
 
-2019-12-03 16:17:16.142 ERROR 54069 --- [Druid-ConnectionPool-Create-329410765] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false, errorCode 0, state 08S01
+2019-12-12 20:25:27.376 ERROR 40350 --- [Druid-ConnectionPool-Create-1365197105] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false, errorCode 0, state 08S01
 
 com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at jdk.internal.reflect.GeneratedConstructorAccessor76.newInstance(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at jdk.internal.reflect.GeneratedConstructorAccessor77.newInstance(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar:1.1.10]
-Caused by: java.net.ConnectException: Operation timed out
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558) ~[druid-1.1.10.jar!/:1.1.10]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar!/:1.1.10]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar!/:1.1.10]
+Caused by: java.net.SocketException: Network is unreachable
 	at java.base/sun.nio.ch.Net.connect0(Native Method) ~[na:na]
 	at java.base/sun.nio.ch.Net.connect(Net.java:493) ~[na:na]
 	at java.base/sun.nio.ch.Net.connect(Net.java:482) ~[na:na]
 	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588) ~[na:na]
 	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:339) ~[na:na]
 	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
-	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	... 16 common frames omitted
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	... 15 common frames omitted
 
-2019-12-03 16:17:17.862 ERROR 54069 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : discard connection
-
-com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
-
-The last packet successfully received from the server was 27,650 milliseconds ago.  The last packet sent successfully to the server was 17,979 milliseconds ago.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3562) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3462) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3905) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.setAutoCommit(ConnectionImpl.java:4807) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.alibaba.druid.pool.DruidPooledConnection.setAutoCommit(DruidPooledConnection.java:712) ~[druid-1.1.10.jar:1.1.10]
-	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:283) ~[spring-jdbc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
-	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:378) ~[spring-tx-5.1.9.RELEASE.jar:5.1.9.RELEASE]
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:137) ~[spring-tx-5.1.9.RELEASE.jar:5.1.9.RELEASE]
-	at org.activiti.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:45) ~[activiti-spring-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:31) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:40) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:35) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.asyncexecutor.AcquireAsyncJobsDueRunnable.run(AcquireAsyncJobsDueRunnable.java:52) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
-Caused by: java.net.SocketException: Operation timed out
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:326) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:351) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:802) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:937) ~[na:na]
-	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:101) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:144) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:174) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3011) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3472) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	... 16 common frames omitted
-
-2019-12-03 16:17:17.892 ERROR 54069 --- [Thread-2] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : exception during async job acquisition: Could not open JDBC Connection for transaction; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
-
-The last packet successfully received from the server was 27,650 milliseconds ago.  The last packet sent successfully to the server was 17,979 milliseconds ago.
-
-org.springframework.transaction.CannotCreateTransactionException: Could not open JDBC Connection for transaction; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
-
-The last packet successfully received from the server was 27,650 milliseconds ago.  The last packet sent successfully to the server was 17,979 milliseconds ago.
-	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:305) ~[spring-jdbc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
-	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:378) ~[spring-tx-5.1.9.RELEASE.jar:5.1.9.RELEASE]
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:137) ~[spring-tx-5.1.9.RELEASE.jar:5.1.9.RELEASE]
-	at org.activiti.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:45) ~[activiti-spring-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:31) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:40) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:35) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at org.activiti.engine.impl.asyncexecutor.AcquireAsyncJobsDueRunnable.run(AcquireAsyncJobsDueRunnable.java:52) ~[activiti-engine-5.22.0.jar:5.22.0]
-	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
-Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
-
-The last packet successfully received from the server was 27,650 milliseconds ago.  The last packet sent successfully to the server was 17,979 milliseconds ago.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3562) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3462) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3905) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.setAutoCommit(ConnectionImpl.java:4807) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.alibaba.druid.pool.DruidPooledConnection.setAutoCommit(DruidPooledConnection.java:712) ~[druid-1.1.10.jar:1.1.10]
-	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:283) ~[spring-jdbc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
-	... 8 common frames omitted
-Caused by: java.net.SocketException: Operation timed out
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:326) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:351) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:802) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:937) ~[na:na]
-	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:101) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:144) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:174) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3011) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3472) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	... 16 common frames omitted
-
-2019-12-03 16:17:24.483 ERROR 54069 --- [Druid-ConnectionPool-Create-329410765] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false, errorCode 0, state 08S01
+2019-12-12 23:47:57.264 ERROR 40350 --- [Druid-ConnectionPool-Create-1365197105] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false, errorCode 0, state 08S01
 
 com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at jdk.internal.reflect.GeneratedConstructorAccessor76.newInstance(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at jdk.internal.reflect.GeneratedConstructorAccessor77.newInstance(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar:1.1.10]
-Caused by: java.net.ConnectException: Operation timed out
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558) ~[druid-1.1.10.jar!/:1.1.10]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar!/:1.1.10]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar!/:1.1.10]
+Caused by: java.net.SocketException: Network is unreachable
 	at java.base/sun.nio.ch.Net.connect0(Native Method) ~[na:na]
 	at java.base/sun.nio.ch.Net.connect(Net.java:493) ~[na:na]
 	at java.base/sun.nio.ch.Net.connect(Net.java:482) ~[na:na]
 	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588) ~[na:na]
 	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:339) ~[na:na]
 	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
-	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	... 16 common frames omitted
-
-2019-12-03 16:18:40.132 ERROR 54069 --- [Druid-ConnectionPool-Create-329410765] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://39.105.153.251:3306/workflow?characterEncoding=utf8&useSSL=false, errorCode 0, state 08S01
-
-com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2197) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar:1.1.10]
-Caused by: java.net.ConnectException: Operation timed out
-	at java.base/sun.nio.ch.Net.connect0(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.connect(Net.java:493) ~[na:na]
-	at java.base/sun.nio.ch.Net.connect(Net.java:482) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:339) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
-	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301) ~[mysql-connector-java-5.1.47.jar:5.1.47]
-	... 16 common frames omitted
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301) ~[mysql-connector-java-5.1.47.jar!/:5.1.47]
+	... 15 common frames omitted
 

@@ -21,7 +21,7 @@ public class FileController {
     @Autowired
     private IFileService fileService;
 
-    @PostMapping
+//    @PostMapping
     /**
      * @auther: lulu
      * @Description: 上传文件（够用了）
@@ -30,11 +30,11 @@ public class FileController {
      * @param: [file, projectId]
      * @date: 2019/11/27 下午6:52
      **/
-    public ServiceResponse upload(@RequestParam("file") MultipartFile file, @RequestParam("projectId") String projectId) {
-        return fileService.upload(file, Integer.parseInt(projectId));
-    }
+//    public ServiceResponse upload(@RequestParam("file") MultipartFile file, @RequestParam("projectId") String projectId) {
+//        return fileService.upload(file, Integer.parseInt(projectId));
+//    }
 
-    @PostMapping("morefile")
+//    @PostMapping("morefile")
     /**
      * @auther: lulu
      * @Description: 上传文件
@@ -43,9 +43,9 @@ public class FileController {
      * @param: [files, projectId]
      * @date: 2019/11/27 下午6:53
      **/
-    public ServiceResponse uploadMore(@RequestParam("files") MultipartFile[] files, @RequestParam("projectId") String projectId) {
-        return fileService.manyUpload(files, Integer.parseInt(projectId));
-    }
+//    public ServiceResponse uploadMore(@RequestParam("files") MultipartFile[] files, @RequestParam("projectId") String projectId) {
+//        return fileService.manyUpload(files, Integer.parseInt(projectId));
+//    }
 
     @GetMapping
     /**
